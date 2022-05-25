@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel= "mapstyle" href="map.css">
+    <script src = "main.js"></script>
+</head>
+
+<body>
+<div id ="gpsmessage"></div>
+<div id="googleMap" style="width: 100%; width: 97vw;height: 100%; height: 50vw; padding: 20px;"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    socket.on('chat message', function(msg)
+    {
+    var item = document.getElementById('gpsmessage');
+     item.append(msg);
+    console.log("client message: "+msg);
+    reloadMap(msg);
+    });
+
+</script>
+</body>
+
+
+</html>
